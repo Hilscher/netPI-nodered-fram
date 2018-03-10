@@ -40,7 +40,7 @@ Pulling the image from Docker Hub may take up to 5 minutes.
 
 #### Accessing
 
-After starting the container open Node-RED in your browser with `http://<netpi's ip address>:<mapped host port>` e.g. `http://192.168.0.1:1880`. Two extra nodes *fram read* and *fram write* in the nodes library provides you random access to netPI's FRAM. Their info tabs in Node-RED explain how to use them.
+After starting the container open Node-RED in your browser with `http://<netpi's ip address>:<mapped host port>` e.g. `http://192.168.0.1:1880`. Two extra nodes *fram read* and *fram write* in the nodes *fram* library palette provides you random access to netPI RTE 3's FRAM. Their info tabs in Node-RED explain how to use them.
 
 #### Tags
 
