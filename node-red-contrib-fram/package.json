@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-fram",
-  "version": "1.0.0",
+  "version": "1.1.0.1",
   "description": "Node-RED noded to access FRAM of netPI RTE 3",
   "dependencies": {
     "i2c": "^0.2.3"
