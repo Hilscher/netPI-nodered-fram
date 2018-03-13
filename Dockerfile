@@ -6,11 +6,11 @@ RUN [ "cross-build-start" ]
 
 #labeling
 LABEL maintainer="netpi@hilscher.com" \ 
-      version="V1.1.0.1" \
+      version="V1.1.0" \
       description="Node-RED with fram nodes for netPI RTE 3"
 
 #version
-ENV HILSCHERNETPI_NODERED_FRAM_VERSION 1.1.0.1
+ENV HILSCHERNETPI_NODERED_FRAM_VERSION 1.1.0
 
 #copy files
 COPY "./init.d/*" /etc/init.d/ 
