@@ -12,7 +12,7 @@ Base of this image builds the latest version of [debian:jessie](https://hub.dock
 
 ##### Port mapping
 
-To allow the access to the Node-RED programming over a web browser the container TCP port `1880` needs to be exposed to the host.
+To allow the access to the Node-RED programming tool over a web browser the container TCP port `1880` needs to be exposed to the host.
 
 ##### Host device
 
