@@ -6,13 +6,13 @@ Made for [netPI RTE 3](https://www.netiot.com/netpi/), the Raspberry Pi 3B Archi
 
 The image provided hereunder deploys a container with installed Debian, Node-RED and fram nodes to communicate with the onboard ferroelectric random access memory on netPI RTE 3,
 
-Base of this image builds the latest version of [debian:jessie](https://hub.docker.com/r/resin/armv7hf-debian/tags/) with installed Internet of Things flow-based programming web-tool [Node-RED](https://nodered.org/) and two extra nodes *fram read* and *fram write* providing access to netPI's 8kByte FRAM FM24CL64B.
+Base of this image builds [debian](https://www.balena.io/docs/reference/base-images/base-images/) with installed Internet of Things flow-based programming web-tool [Node-RED](https://nodered.org/) and two extra nodes *fram read* and *fram write* providing access to netPI's 8kByte FRAM FM24CL64B.
 
 #### Container prerequisites
 
 ##### Port mapping
 
-To allow the access to the Node-RED programming tool over a web browser the container TCP port `1880` needs to be exposed to the host.
+To allow the access to the Node-RED over a web browser the container TCP port `1880` needs to be exposed to the host.
 
 ##### Host device
 
@@ -46,7 +46,7 @@ After starting the container open Node-RED in your browser with `http://<netpi's
 
 The project complies with the scripting based [Dockerfile](https://docs.docker.com/engine/reference/builder/) method to build the image output file. Using this metod is a precondition for an [automated](https://docs.docker.com/docker-hub/builds/) web based build process on DockerHub platform.
 
-DockerHub web platform is x86 CP based, but an ARM CPU coded output file is needed for Raspberry systems. This is why the Dockerfile includes the [balena.io](https://balena.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/) steps.
+DockerHub web platform is x86 CP based, but an ARM CPU coded output file is needed for Raspberry systems. This is why the Dockerfile includes the [balena](https://balena.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/) steps.
 
 #### License
 
