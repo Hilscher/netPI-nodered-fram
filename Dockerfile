@@ -1,16 +1,25 @@
-#use latest armv7hf compatible debian OS version from group resin.io as base image
-FROM balenalib/armv7hf-debian:stretch
+#use armv7hf compatible base image
+FROM balenalib/armv7hf-debian:buster-20191223
 
-#enable building ARM container on x86 machinery on the web (comment out next line if built on Raspberry) 
+#dynamic build arguments coming from the /hook/build file
+ARG BUILD_DATE
+ARG VCS_REF
+
+#metadata labels
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/HilscherAutomation/netPI-nodered-fram" \
+      org.label-schema.vcs-ref=$VCS_REF
+
+#enable cross compiling (comment out next line if built on Raspberry Pi) 
 RUN [ "cross-build-start" ]
-
-#labeling
-LABEL maintainer="netpi@hilscher.com" \ 
-      version="V1.1.0" \
-      description="Node-RED with fram nodes for netPI RTE 3"
 
 #version
 ENV HILSCHERNETPI_NODERED_FRAM_VERSION 1.1.0
+
+#labeling
+LABEL maintainer="netpi@hilscher.com" \
+      version=$HILSCHERNETPI_NODERED_FRAM_VERSION \
+      description="Node-RED including FRAM nodes"
 
 #copy files
 COPY "./init.d/*" /etc/init.d/ 
@@ -20,10 +29,10 @@ COPY "./node-red-contrib-fram/*" /tmp/
 RUN apt-get update  \
     && apt-get install curl build-essential python-dev \
 #install node.js
-    && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -  \
+    && curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -  \
     && apt-get install -y nodejs  \
 #install Node-RED
-    && npm install -g --unsafe-perm node-red \
+    && npm install -g --unsafe-perm node-red@1.0.3 \
 #install nodes
     && mkdir /usr/lib/node_modules/node-red-contrib-fram \
     && mv /tmp/fram.js /tmp/fram.html /tmp/package.json -t /usr/lib/node_modules/node-red-contrib-fram \

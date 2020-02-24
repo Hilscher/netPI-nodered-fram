@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Node-RED noded to access FRAM of netPI RTE 3",
   "dependencies": {
-    "i2c": "^0.2.3"
+    "i2c-bus": "5.1.0"
   },
   "main": "fram.js",
   "scripts": {
